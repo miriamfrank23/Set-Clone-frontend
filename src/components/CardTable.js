@@ -21,6 +21,10 @@ class CardTable extends Component {
       return cards.map(card =>
         <div key={card.id} className='card'>
           <h3>{card.id}</h3>
+          <h3>{card.number}</h3>
+          <h3>{card.color}</h3>
+          <h3>{card.shading}</h3>
+          <h3>{card.symbol}</h3>
         </div>)
     }
   }
@@ -31,7 +35,6 @@ class CardTable extends Component {
 
     return(
       <div className='cardContainer'>
-      Card list
       {this.loadCards(this.props)}
       </div>
     )
