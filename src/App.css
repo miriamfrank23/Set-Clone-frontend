@@ -17,3 +17,7 @@
   from {background-color: lightpink;}
   to {background-color: lightblue;}
 }
+
+.card {
+  background-color: gray;
+}
