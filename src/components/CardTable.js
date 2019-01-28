@@ -18,17 +18,18 @@ class CardTable extends Component {
       return <div>Loading...</div>;
     }
     else if (cards) {
+
       return cards.map(card =>
         <div key={card.id} className='card'>
-          <h3>{card.id}</h3>
-          <h3>{card.number}</h3>
-          <h3>{card.color}</h3>
-          <h3>{card.shading}</h3>
-          <h3>{card.symbol}</h3>
+          <img src={card.image} alt=''/>
         </div>)
     }
   }
 
+  /* <span>{card.number}</span>
+  <span>{card.color}</span>
+  <span>{card.shading}</span>
+  <span>{card.symbol}</span> */
 
 
   render() {

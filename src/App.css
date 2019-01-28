@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: gray;
+  color: black;
   animation-name: example;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -20,19 +20,27 @@
 
 .card {
   background-color: white;
-  margin: 20px;
+  margin: 10px;
   height: 150px;
-  width: 100px;
+  width: 210px;
   border-radius: 3px;
 }
 
 .card:hover {
-  background-color: lightyellow;
+  background-color: lightpink;
 }
 
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
+}
+
+button {
+  width: 60px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 3px;
+  margin: 10px;
 }

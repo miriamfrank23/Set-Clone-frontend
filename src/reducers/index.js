@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE } from '../actions';
+import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED } from '../actions';
 
 const initialState = {
   cards: [],
   loading: false,
-  error: null
+  error: null,
+  gameActive: false
 }
 
 const cardsReducer = (state = initialState, action) => {
@@ -42,7 +43,19 @@ const cardsReducer = (state = initialState, action) => {
 //   }
 // }
 
+const activeGameReducer = (state = initialState, action) => {
+  switch(action.type) {
+    case GAME_STARTED:
+     return {
+       ...state,
+       gameActive: false,
+    }
+    default:
+      return state;
+  }
+}
+
 export default combineReducers ({
   cards: cardsReducer,
-  // selectedCards: selectedCardsReducer
+  activeGame: activeGameReducer
 })

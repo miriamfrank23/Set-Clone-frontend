@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-// import { selectCard } from './actions';
 import CardTable from './components/CardTable';
+import GameRules from './components/GameRules';
 
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
 
     return (
       <div className="App">
+        <GameRules />
         <CardTable />
       </div>
     )
