@@ -37,10 +37,21 @@
   align-items: baseline;
 }
 
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 button {
   width: 60px;
   height: 30px;
   font-size: 14px;
   border-radius: 3px;
   margin: 10px;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+button:hover {
+  background-color: lightpink;
 }

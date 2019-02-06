@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED } from '../actions';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
   gameActive: false
 }
 
-const cardsReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_CARDS_BEGIN:
      return {
@@ -34,28 +34,4 @@ const cardsReducer = (state = initialState, action) => {
     }
 }
 
-// const selectedCardsReducer = (selectedCards=[], action) => {
-//   switch (action.type) {
-//     case 'CARD_SELECTED':
-//       return [...selectedCards, action.payload]
-//     default:
-//       return selectedCards
-//   }
-// }
-
-const activeGameReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case GAME_STARTED:
-     return {
-       ...state,
-       gameActive: false,
-    }
-    default:
-      return state;
-  }
-}
-
-export default combineReducers ({
-  cards: cardsReducer,
-  activeGame: activeGameReducer
-})
+export default reducer

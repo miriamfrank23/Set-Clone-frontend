@@ -42,16 +42,16 @@ export const fetchCardsFailure = (error) => ({
   payload: error
 })
 
-export const selectCard = (card) => {
-  return {
-    type: 'CARD_SELECTED',
-    payload: card
-  }
-}
+// export const selectCard = (card) => {
+//   return {
+//     type: 'CARD_SELECTED',
+//     payload: card
+//   }
+// }
 
-export const gameStarted = (true) => {
-  return {
-    type: 'GAME_STARTED',
-    payload: true
-  }
-}
+// export const gameStarted = (true) => {
+//   return {
+//     type: 'GAME_STARTED',
+//     payload: true
+//   }
+// }

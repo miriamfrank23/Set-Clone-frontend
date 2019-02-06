@@ -10,7 +10,7 @@ class CardTable extends Component {
   }
 
   loadCards = (props) => {
-    const { error, loading, cards } = props.cards
+    const { error, loading, cards } = props
     // debugger
     if (error) {
       return <div>Error!</div>;
