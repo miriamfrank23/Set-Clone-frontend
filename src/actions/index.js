@@ -1,6 +1,7 @@
 export const FETCH_CARDS_BEGIN = 'FETCH_CARDS_BEGIN';
 export const FETCH_CARDS_SUCCESS = 'FETCH_CARDS_SUCCESS';
 export const FETCH_CARDS_FAILURE = 'FETCH_CARDS_FAILURE';
+export const GAME_STARTED = 'GAME_STARTED';
 
 // const handleErrors = (response) => {
 //   if (!response.ok) {
@@ -49,9 +50,8 @@ export const fetchCardsFailure = (error) => ({
 //   }
 // }
 
-// export const gameStarted = (true) => {
-//   return {
-//     type: 'GAME_STARTED',
-//     payload: true
-//   }
-// }
+export const gameStarted = () => {
+  return {
+    type: GAME_STARTED
+  }
+}

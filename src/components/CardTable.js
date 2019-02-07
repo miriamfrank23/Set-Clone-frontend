@@ -11,7 +11,6 @@ class CardTable extends Component {
 
   loadCards = (props) => {
     const { error, loading, cards } = props
-    // debugger
     if (error) {
       return <div>Error!</div>;
     } else if (loading) {
@@ -25,12 +24,6 @@ class CardTable extends Component {
         </div>)
     }
   }
-
-  /* <span>{card.number}</span>
-  <span>{card.color}</span>
-  <span>{card.shading}</span>
-  <span>{card.symbol}</span> */
-
 
   render() {
 

@@ -5,7 +5,11 @@ const initialState = {
   cards: [],
   loading: false,
   error: null,
-  gameActive: false
+  gameActive: false,
+  timer: 0,
+  sets: [],
+  cardsOnBoard: [],
+  selectedCards: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +33,11 @@ const reducer = (state = initialState, action) => {
        error: action.payload.error,
        cards: []
     }
+    case GAME_STARTED:
+       return {
+         ...state,
+         gameActive: !state.gameActive,
+      }
     default:
       return state;
     }
