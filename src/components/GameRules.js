@@ -1,12 +1,31 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { gameStarted } from "../actions";
+import { gameStarted, setCardsOnBoard } from "../actions";
 
 const GameRules = (props) => {
 
+  const drawCards = (props) => {
+    const { gameActive, cards } = props
+
+    let randomCards = cards.slice(0,9)
+    props.setCardsOnBoard(randomCards)
+  }
+
+  const dealCards = (props) => {
+    const { cardsOnBoard } = props
+    // debugger
+    if (cardsOnBoard.length) {
+      cardsOnBoard.map(card =>
+        <div>
+          <img className='card' src={card.image} alt=''/>
+        </div>
+      )
+    }
+  }
+
   const showRules = (props) => {
     if (props.gameActive) {
-      return <div>
+      return <div className='App'>
         <h3>Happy SET finding!</h3>
         <button onClick={() => props.gameStarted()}>
           Stop
@@ -35,17 +54,21 @@ const GameRules = (props) => {
   return(
     <div >
       {showRules(props)}
+      {props.gameActive ? dealCards(props) : <div>Nothing to show</div>}
     </div>
   )
 
 }
 
-const mapDispatchToProps = (dispatch, bool) =>  ({
-  gameStarted: () => dispatch(gameStarted())
+const mapDispatchToProps = (dispatch) =>  ({
+  gameStarted: () => dispatch(gameStarted()),
+  setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards))
 })
 
 const mapStateToProps = (state) =>  ({
-  gameActive: state.gameActive
+  gameActive: state.gameActive,
+  cards: state.cards,
+  cardsOnBoard: state.cardsOnBoard
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameRules);

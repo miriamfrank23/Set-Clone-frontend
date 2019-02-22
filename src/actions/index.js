@@ -2,6 +2,8 @@ export const FETCH_CARDS_BEGIN = 'FETCH_CARDS_BEGIN';
 export const FETCH_CARDS_SUCCESS = 'FETCH_CARDS_SUCCESS';
 export const FETCH_CARDS_FAILURE = 'FETCH_CARDS_FAILURE';
 export const GAME_STARTED = 'GAME_STARTED';
+export const CARD_SELECTED = 'CARD_SELECTED';
+export const CARDS_ON_BOARD = 'CARDS_ON_BOARD';
 
 // const handleErrors = (response) => {
 //   if (!response.ok) {
@@ -43,15 +45,16 @@ export const fetchCardsFailure = (error) => ({
   payload: error
 })
 
-// export const selectCard = (card) => {
-//   return {
-//     type: 'CARD_SELECTED',
-//     payload: card
-//   }
-// }
+export const selectCard = (card) => ({
+  type: CARD_SELECTED,
+  payload: card
+})
 
-export const gameStarted = () => {
-  return {
-    type: GAME_STARTED
-  }
-}
+export const gameStarted = () => ({
+  type: GAME_STARTED
+})
+
+export const setCardsOnBoard = (cards) => ({
+  type: CARDS_ON_BOARD,
+  payload: cards
+})

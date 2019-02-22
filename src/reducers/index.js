@@ -1,5 +1,5 @@
 // import { combineReducers } from 'redux';
-import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED } from '../actions';
+import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED, CARD_SELECTED, CARDS_ON_BOARD } from '../actions';
 
 const initialState = {
   cards: [],
@@ -24,7 +24,8 @@ const reducer = (state = initialState, action) => {
      return {
        ...state,
        loading: false,
-       cards: action.payload
+       cards: action.payload.sort(() => 0.5 - Math.random())
+       // shuffle deck
     }
     case FETCH_CARDS_FAILURE:
      return {
@@ -37,6 +38,16 @@ const reducer = (state = initialState, action) => {
        return {
          ...state,
          gameActive: !state.gameActive,
+      }
+    case CARD_SELECTED:
+       return {
+         ...state,
+         selectedCards: [...state.selectedCards, action.payload],
+      }
+    case CARDS_ON_BOARD:
+       return {
+         ...state,
+         cardsOnBoard: action.payload
       }
     default:
       return state;
