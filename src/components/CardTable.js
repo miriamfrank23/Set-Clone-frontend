@@ -10,7 +10,23 @@ class CardTable extends Component {
     this.props.fetchCards()
   }
 
-  loadCards = (props) => {
+  drawCards = (props) => {
+    const { gameActive, cards } = props
+    // debugger
+
+    let randomCards = cards.slice(0,9)
+    // props.setCardsOnBoard(randomCards)
+    // this.dealCards(randomCards)
+
+    return randomCards.map(card => {
+      // debugger
+      return <img className='card' key={card.id} src={card.image} alt=''/>
+    })
+  }
+
+
+
+  loadingCard = (props) => {
     const { error, loading, cards } = props
     if (error) {
       return <div>Error!</div>;
@@ -32,7 +48,7 @@ class CardTable extends Component {
   render() {
     return(
       <div className='cardContainer'>
-      {!this.props.gameActive ? this.loadCards(this.props) : <div>hi</div>}
+      {!this.props.gameActive ? this.loadingCard(this.props) : this.drawCards(this.props)}
       </div>
     )
   }
@@ -49,6 +65,7 @@ const mapStateToProps = (state) =>  ({
 const mapDispatchToProps = (dispatch) =>  ({
   fetchCards: () => dispatch(fetchCards()),
   selectCard: () => dispatch(selectCard()),
+  setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);

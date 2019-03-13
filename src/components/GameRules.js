@@ -4,24 +4,25 @@ import { gameStarted, setCardsOnBoard } from "../actions";
 
 const GameRules = (props) => {
 
-  const drawCards = (props) => {
-    const { gameActive, cards } = props
+  // const drawCards = (props) => {
+  //   // debugger
+  //   const { gameActive, cards } = props
+  //
+  //   let randomCards = cards.slice(0,9)
+  //   props.setCardsOnBoard(randomCards)
+  // }
 
-    let randomCards = cards.slice(0,9)
-    props.setCardsOnBoard(randomCards)
-  }
-
-  const dealCards = (props) => {
-    const { cardsOnBoard } = props
-    // debugger
-    if (cardsOnBoard.length) {
-      cardsOnBoard.map(card =>
-        <div>
-          <img className='card' src={card.image} alt=''/>
-        </div>
-      )
-    }
-  }
+  // const dealCards = (cards) => {
+  //
+  //   debugger
+  //   if (cards.length) {
+  //     cards.map(card =>
+  //       <div>
+  //         <img className='card' src={card.image} alt=''/>
+  //       </div>
+  //     )
+  //   }
+  // }
 
   const showRules = (props) => {
     if (props.gameActive) {
@@ -54,7 +55,6 @@ const GameRules = (props) => {
   return(
     <div >
       {showRules(props)}
-      {props.gameActive ? dealCards(props) : <div>Nothing to show</div>}
     </div>
   )
 

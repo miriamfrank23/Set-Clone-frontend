@@ -1,9 +1,10 @@
 .App {
   text-align: center;
-  background-color: lightpink;
-  min-height: 100vh;
+  /* background-color: lightpink; */
+  /* min-height: 100vh; */
   display: flex;
   /* align-items: stretch; */
+  justify-content: center;
   /* font-size: calc(10px + 2vmin); */
   color: black;
   animation-name: changeBackground;
@@ -11,26 +12,27 @@
   animation-iteration-count: infinite;
 }
 
-@keyframes changeBackground {
+/* @keyframes changeBackground {
   from {background-color: lightpink;}
   to {background-color: lightblue;}
 }
+*/
 
-@keyframes spin {
+ @keyframes spin {
   from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
-}
+ }
 
 .card {
   background-color: white;
   margin: 10px;
-  height: 150px;
-  width: 210px;
+  height: 160px;
+  width: 220px;
   border-radius: 3px;
 }
 
 .spinningCard {
-  margin: 75px;
+  margin: 20px;
   background-color: white;
   height: 200px;
   width: 290px;
@@ -44,16 +46,21 @@
 }
 
 .card:hover {
-  background-color: lightblue;
+  background-color: #f2f2f2;
 }
 
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   border-width: 1px;
   border-style: solid;
+  background-image: url("https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  min-height: 50vh;
+  border-radius: 3px;
+
+
 }
 
 .instructions {
