@@ -4,6 +4,7 @@ export const FETCH_CARDS_FAILURE = 'FETCH_CARDS_FAILURE';
 export const GAME_STARTED = 'GAME_STARTED';
 export const CARD_SELECTED = 'CARD_SELECTED';
 export const CARDS_ON_BOARD = 'CARDS_ON_BOARD';
+export const CLEAR_SELECTED_CARDS = 'CLEAR_SELECTED_CARDS';
 
 // const handleErrors = (response) => {
 //   if (!response.ok) {
@@ -57,4 +58,8 @@ export const gameStarted = () => ({
 export const setCardsOnBoard = (cards) => ({
   type: CARDS_ON_BOARD,
   payload: cards
+})
+
+export const clearSelectedCards = () => ({
+  type: CLEAR_SELECTED_CARDS,
 })

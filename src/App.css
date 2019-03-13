@@ -49,6 +49,15 @@
   background-color: #f2f2f2;
 }
 
+.selectedCard {
+  background-color: white;
+  margin: 10px;
+  height: 160px;
+  width: 220px;
+  border-radius: 3px;
+  opacity: .5;
+}
+
 .cardContainer {
   display: flex;
   flex-wrap: wrap;

@@ -1,5 +1,5 @@
 // import { combineReducers } from 'redux';
-import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED, CARD_SELECTED, CARDS_ON_BOARD } from '../actions';
+import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED, CARD_SELECTED, CARDS_ON_BOARD, CLEAR_SELECTED_CARDS } from '../actions';
 
 const initialState = {
   cards: [],
@@ -9,7 +9,7 @@ const initialState = {
   timer: 0,
   sets: [],
   cardsOnBoard: [],
-  selectedCards: []
+  selectedCards: [],
 }
 
 const reducer = (state = initialState, action) => {
@@ -44,10 +44,15 @@ const reducer = (state = initialState, action) => {
          ...state,
          selectedCards: [...state.selectedCards, action.payload],
       }
-    case CARDS_ON_BOARD: 
+    case CARDS_ON_BOARD:
        return {
          ...state,
          cardsOnBoard: action.payload
+      }
+    case CLEAR_SELECTED_CARDS:
+       return {
+         ...state,
+         selectedCards: []
       }
     default:
       return state;

@@ -4,26 +4,6 @@ import { gameStarted, setCardsOnBoard } from "../actions";
 
 const GameRules = (props) => {
 
-  // const drawCards = (props) => {
-  //   // debugger
-  //   const { gameActive, cards } = props
-  //
-  //   let randomCards = cards.slice(0,9)
-  //   props.setCardsOnBoard(randomCards)
-  // }
-
-  // const dealCards = (cards) => {
-  //
-  //   debugger
-  //   if (cards.length) {
-  //     cards.map(card =>
-  //       <div>
-  //         <img className='card' src={card.image} alt=''/>
-  //       </div>
-  //     )
-  //   }
-  // }
-
   const showRules = (props) => {
     if (props.gameActive) {
       return <div className='App'>
@@ -56,7 +36,7 @@ const GameRules = (props) => {
 
 const mapDispatchToProps = (dispatch) =>  ({
   gameStarted: () => dispatch(gameStarted()),
-  setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards))
+  // setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards))
 })
 
 const mapStateToProps = (state) =>  ({
