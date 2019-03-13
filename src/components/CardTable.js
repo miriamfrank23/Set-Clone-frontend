@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCards, setCardsOnBoard, selectCard } from "../actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted } from "../actions";
 
 
 
@@ -11,12 +11,11 @@ class CardTable extends Component {
   }
 
   drawCards = (props) => {
-    const { gameActive, cards } = props
     // debugger
+    const { gameActive, cards, setCardsOnBoard } = props
 
     let randomCards = cards.slice(0,9)
-    // props.setCardsOnBoard(randomCards)
-    // this.dealCards(randomCards)
+    setCardsOnBoard(randomCards)
 
     return randomCards.map(card => {
       // debugger
@@ -48,7 +47,19 @@ class CardTable extends Component {
   render() {
     return(
       <div className='cardContainer'>
-      {!this.props.gameActive ? this.loadingCard(this.props) : this.drawCards(this.props)}
+      {!this.props.gameActive ?
+        <div>
+        <button onClick={() => this.props.gameStarted(), this.drawCards(this.props)}>
+          Play!
+        </button>
+        </div>
+        :
+        <div>
+        <button onClick={() => this.props.gameStarted(), this.loadingCard(this.props)}>
+          Stop
+        </button>
+        </div>
+      }
       </div>
     )
   }
@@ -63,8 +74,9 @@ const mapStateToProps = (state) =>  ({
 })
 
 const mapDispatchToProps = (dispatch) =>  ({
+  gameStarted: () => dispatch(gameStarted()),
   fetchCards: () => dispatch(fetchCards()),
-  selectCard: () => dispatch(selectCard()),
+  selectCard: (card) => dispatch(selectCard(card)),
   setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards))
 })
 

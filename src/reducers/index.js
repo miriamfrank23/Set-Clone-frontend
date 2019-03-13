@@ -44,7 +44,7 @@ const reducer = (state = initialState, action) => {
          ...state,
          selectedCards: [...state.selectedCards, action.payload],
       }
-    case CARDS_ON_BOARD:
+    case CARDS_ON_BOARD: 
        return {
          ...state,
          cardsOnBoard: action.payload

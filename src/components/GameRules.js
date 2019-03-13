@@ -28,9 +28,6 @@ const GameRules = (props) => {
     if (props.gameActive) {
       return <div className='App'>
         <h3>Happy SET finding!</h3>
-        <button onClick={() => props.gameStarted()}>
-          Stop
-        </button>
       </div>
     }
     return <div className='instructions'>
@@ -42,9 +39,6 @@ const GameRules = (props) => {
           Ready to play?
         </p>
         <div>
-          <button onClick={() => props.gameStarted()}>
-            Play!
-          </button>
           <button>
             Demo
           </button>
