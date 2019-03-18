@@ -20,12 +20,8 @@ class CardTable extends Component {
   renderCards = () => {
       const { cardsOnBoard, selectCard, selectedCards } = this.props
 
-    return cardsOnBoard.map(card => {
-      if (selectedCards.map(eachCard => eachCard.id).includes(card.id)) {
-          return <img className='selectedCard' key={card.id} src={card.image} alt='' onClick={() => {selectCard(card);}}/>
-      }
-      return <img className='card' key={card.id} src={card.image} alt='' onClick={() => {selectCard(card);}}/>
-    })
+      return <Card />
+
   }
 
 
