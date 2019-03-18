@@ -11,9 +11,9 @@ class CardTable extends Component {
   }
 
   drawCards = () => {
-    const { gameActive, cards, setCardsOnBoard } = this.props
+    const { cards, setCardsOnBoard } = this.props
 
-    let randomCards = cards.slice(0,9)
+    let randomCards = cards.slice(0,12)
     setCardsOnBoard(randomCards)
   }
 
@@ -47,7 +47,7 @@ class CardTable extends Component {
 
 
   render() {
-    console.log(this.props.cardsOnBoard);
+    console.log(this.props.cardsOnBoard, this.props.selectedCards);
     return(
       <div className='cardContainer'>
       {!this.props.gameActive ?
@@ -60,6 +60,9 @@ class CardTable extends Component {
         <div>
           <button onClick={() => {this.props.gameStarted(); this.loadingCard(); }}>
             Stop
+          </button>
+          <button onClick={() => {this.drawCards()}}>
+            I don't see any SETs here
           </button>
           <div>
           {this.renderCards()}
@@ -83,7 +86,7 @@ const mapDispatchToProps = (dispatch) =>  ({
   fetchCards: () => dispatch(fetchCards()),
   selectCard: (card) => dispatch(selectCard(card)),
   setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards)),
-  clearSelectedCards: (cards) => dispatch(clearSelectedCards(cards)),
+  clearSelectedCards: () => dispatch(clearSelectedCards()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);

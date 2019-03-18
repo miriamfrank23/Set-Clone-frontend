@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { gameStarted, setCardsOnBoard } from "../actions";
+import { gameStarted } from "../actions";
 
 const GameRules = (props) => {
 

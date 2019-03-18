@@ -3,6 +3,7 @@ export const FETCH_CARDS_SUCCESS = 'FETCH_CARDS_SUCCESS';
 export const FETCH_CARDS_FAILURE = 'FETCH_CARDS_FAILURE';
 export const GAME_STARTED = 'GAME_STARTED';
 export const CARD_SELECTED = 'CARD_SELECTED';
+export const CARD_UNSELECTED = 'CARD_UNSELECTED';
 export const CARDS_ON_BOARD = 'CARDS_ON_BOARD';
 export const CLEAR_SELECTED_CARDS = 'CLEAR_SELECTED_CARDS';
 
@@ -48,6 +49,11 @@ export const fetchCardsFailure = (error) => ({
 
 export const selectCard = (card) => ({
   type: CARD_SELECTED,
+  payload: card
+})
+
+export const unselectCard = (card) => ({
+  type: CARD_UNSELECTED,
   payload: card
 })
 

@@ -31,7 +31,7 @@
   border-radius: 3px;
 }
 
-.spinningCard {
+/* .spinningCard {
   margin: 20px;
   background-color: white;
   height: 200px;
@@ -43,7 +43,7 @@
   animation-name: spin;
   animation-duration: 5s;
   animation-iteration-count: infinite;
-}
+} */
 
 .card:hover {
   background-color: #f2f2f2;
@@ -59,29 +59,29 @@
 }
 
 .cardContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(auto, 1000px);
   justify-content: center;
   align-items: center;
-  border-width: 1px;
   border-style: solid;
   background-image: url("https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
-  min-height: 60vh;
+  /* background-image: url("http://25fontenay1806.info/wp-content/uploads/2018/09/wood-desk-background-wood-table-background-teak-wood-texture-teak-wood-texture-in-wood-floor-desk-wood-grain-background.jpg"); */
+  /* background-repeat: no-repeat; */
+  min-height: 70vh;
   border-radius: 3px;
-
-
 }
 
 .instructions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-width: 1px;
+  /* border-width: 1px; */
   border-style: solid;
+  max-width: 1000px;
 }
 
 button {
-  width: 60px;
+  min-width: 60px;
   height: 30px;
   font-size: 14px;
   border-radius: 3px;
@@ -90,9 +90,13 @@ button {
 }
 
 button:hover {
-  background-color: lightblue;
+  background-color: #f2f2f2;
 }
 
 h3 {
   font-family: 'Roboto Mono', monospace;
+}
+
+p {
+  margin: 20px;
 }
