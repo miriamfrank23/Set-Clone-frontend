@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet } from "../actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets } from "../actions";
 import Card from './Card';
 
 
 class CardTable extends Component {
+
 
   componentDidMount() {
     this.props.fetchCards()
@@ -113,7 +114,7 @@ class CardTable extends Component {
 
 
   render() {
-    // console.log(this.props.cardsOnBoard, this.props.selectedCards);
+
     return(
       <div className='cardContainer'>
       {!this.props.gameActive ?
@@ -124,14 +125,15 @@ class CardTable extends Component {
         </div>
         :
         <div>
-          <button onClick={() => {this.props.gameStarted(); this.loadingCard(); }}>
-            Stop
-          </button>
-          <button onClick={() => {this.checkForSet()}}>
+          <button onClick={() => {this.checkForSet()}} id='checkButton'>
             Check!
           </button>
           <button onClick={() => {this.drawCards()}}>
             I don't see any SETs here
+          </button>
+          <button onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
+          id='stopButton'>
+          Stop
           </button>
           <div>
           {this.renderCards()}
@@ -158,6 +160,7 @@ const mapDispatchToProps = (dispatch) =>  ({
   setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards)),
   clearSelectedCards: () => dispatch(clearSelectedCards()),
   newSet: (set) => dispatch(newSet(set)),
+  clearSets: () => dispatch(clearSets()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);
