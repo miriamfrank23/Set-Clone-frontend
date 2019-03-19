@@ -4,7 +4,7 @@
   /* min-height: 100vh; */
   display: flex;
   /* align-items: stretch; */
-  justify-content: center;
+  justify-content: space-around;
   /* font-size: calc(10px + 2vmin); */
   color: black;
   animation-name: changeBackground;
@@ -31,15 +31,15 @@
   border-radius: 3px;
 }
 
-/* .spinningCard {
-  margin: 20px;
-  background-color: white;
-  height: 200px;
-  width: 290px;
+.setCard {
+  background-color: #c9fdc9;
+  margin: 10px;
+  height: 60px;
+  width: 75px;
   border-radius: 3px;
 }
 
-.spinningCard:hover {
+/* .spinningCard:hover {
   animation-name: spin;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -65,8 +65,6 @@
   align-items: center;
   border-style: solid;
   background-image: url("https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
-  /* background-image: url("http://25fontenay1806.info/wp-content/uploads/2018/09/wood-desk-background-wood-table-background-teak-wood-texture-teak-wood-texture-in-wood-floor-desk-wood-grain-background.jpg"); */
-  /* background-repeat: no-repeat; */
   min-height: 70vh;
   border-radius: 3px;
 }
@@ -75,7 +73,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-width: 1px; */
   border-style: solid;
   max-width: 1000px;
 }
@@ -99,4 +96,17 @@ h3 {
 
 p {
   margin: 20px;
+}
+
+#setTab {
+  padding: 20px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#setList {
+  display: flex;
+  flex-wrap: wrap;
 }

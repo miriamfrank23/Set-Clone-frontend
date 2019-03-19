@@ -2,21 +2,28 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 const SetList = (props) => {
+  const { sets, gameActive } = props
 
-  // const showSets = () => {
-  //
-  //   const { sets } = props
-  //
-  //   if (sets.length) {
-  //     sets.map(set => <img alt='' src='https://fabrika-antey.ru/images/star-clip-art-transparent-background-1.jpg'>)
-  //   }
-  //
-  // }
+
+  const showSets = () => {
+
+     if (sets.length) {
+        return sets.map(set => {
+          return <img alt='' src={set[0].image} className='setCard' key={set[0].id}/>
+        })
+      }
+    }
+
+
 
 
   return(
-    <div>
-      hiiii
+    <div id='setTab'>
+      {gameActive ?
+      `You have ${sets.length} sets` : null}
+      <div id='setList'>
+      {showSets()}
+      </div>
     </div>
   )
 
@@ -25,6 +32,7 @@ const SetList = (props) => {
 
 const mapStateToProps = (state) => ({
   sets: state.sets,
+  gameActive: state.gameActive,
 })
 
 export default connect(mapStateToProps)(SetList);
