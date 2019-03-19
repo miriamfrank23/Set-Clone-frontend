@@ -20,7 +20,7 @@ const SetList = (props) => {
   return(
     <div id='setTab'>
       {gameActive ?
-      `You have ${sets.length} sets` : null}
+      `SET count: ${sets.length}` : null}
       <div id='setList'>
       {showSets()}
       </div>
