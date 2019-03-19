@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards } from "../actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet } from "../actions";
 import Card from './Card';
 
 
@@ -13,12 +13,12 @@ class CardTable extends Component {
   drawCards = () => {
     const { cards, setCardsOnBoard } = this.props
 
-    let randomCards = cards.slice(0,12)
+
+    let randomCards = cards.sort(() => 0.5 - Math.random()).slice(0,12)
     setCardsOnBoard(randomCards)
   }
 
   renderCards = () => {
-      const { cardsOnBoard, selectCard, selectedCards } = this.props
 
       return <Card />
 
@@ -38,16 +38,82 @@ class CardTable extends Component {
       clearSelectedCards()
     }
   }
-  //
-  // renderSpinningCard = () => {
-  //   const { randomCard } = this.props
-  //
-  //   return <img className='spinningCard' src={randomCard.image} alt=''/>
-  // }
+
+
+  checkForSet = () => {
+
+    const { selectedCards, clearSelectedCards, sets, newSet } = this.props
+
+
+    if (selectedCards.length === 3) {
+      if (this.symbolMatch(selectedCards) && this.colorMatch(selectedCards) && this.shadingMatch(selectedCards) && this.numberMatch(selectedCards)) {
+        window.alert('Congratulations! You found a set')
+        newSet(selectedCards)
+        this.drawCards()
+        clearSelectedCards()
+      } else {
+        window.alert('Whoops! That is not a valid set. Try again!')
+        clearSelectedCards()
+      }
+    }
+
+  }
+
+  symbolMatch = (selectedCards) => {
+    if (((selectedCards[0].symbol === selectedCards[1].symbol) &&
+        (selectedCards[1].symbol === selectedCards[2].symbol) &&
+        (selectedCards[0].symbol === selectedCards[2].symbol)) ||
+       ((selectedCards[0].symbol !== selectedCards[1].symbol) &&
+        (selectedCards[1].symbol !== selectedCards[2].symbol) &&
+        (selectedCards[0].symbol !== selectedCards[2].symbol))) {
+      return true;
+    }
+      return false;
+
+  }
+
+  colorMatch = (selectedCards) => {
+    if (((selectedCards[0].color === selectedCards[1].color) &&
+        (selectedCards[1].color === selectedCards[2].color) &&
+        (selectedCards[0].color === selectedCards[2].color)) ||
+       ((selectedCards[0].color !== selectedCards[1].color) &&
+        (selectedCards[1].color !== selectedCards[2].color) &&
+        (selectedCards[0].color !== selectedCards[2].color))) {
+      return true;
+    }
+      return false;
+
+  }
+
+  shadingMatch = (selectedCards) => {
+    if (((selectedCards[0].shading === selectedCards[1].shading) &&
+        (selectedCards[1].shading === selectedCards[2].shading) &&
+        (selectedCards[0].shading === selectedCards[2].shading)) ||
+       ((selectedCards[0].shading !== selectedCards[1].shading) &&
+        (selectedCards[1].shading !== selectedCards[2].shading) &&
+        (selectedCards[0].shading !== selectedCards[2].shading))) {
+      return true;
+    }
+      return false;
+
+  }
+
+  numberMatch = (selectedCards) => {
+    if (((selectedCards[0].number === selectedCards[1].number) &&
+        (selectedCards[1].number === selectedCards[2].number) &&
+        (selectedCards[0].number === selectedCards[2].number)) ||
+       ((selectedCards[0].number !== selectedCards[1].number) &&
+        (selectedCards[1].number !== selectedCards[2].number) &&
+        (selectedCards[0].number !== selectedCards[2].number))) {
+      return true;
+    }
+      return false;
+
+  }
 
 
   render() {
-    console.log(this.props.cardsOnBoard, this.props.selectedCards);
+    // console.log(this.props.cardsOnBoard, this.props.selectedCards);
     return(
       <div className='cardContainer'>
       {!this.props.gameActive ?
@@ -60,6 +126,9 @@ class CardTable extends Component {
         <div>
           <button onClick={() => {this.props.gameStarted(); this.loadingCard(); }}>
             Stop
+          </button>
+          <button onClick={() => {this.checkForSet()}}>
+            Check!
           </button>
           <button onClick={() => {this.drawCards()}}>
             I don't see any SETs here
@@ -78,7 +147,8 @@ const mapStateToProps = (state) =>  ({
   cards: state.cards,
   selectedCards: state.selectedCards,
   cardsOnBoard: state.cardsOnBoard,
-  gameActive: state.gameActive
+  gameActive: state.gameActive,
+  sets: state.sets,
 })
 
 const mapDispatchToProps = (dispatch) =>  ({
@@ -87,6 +157,7 @@ const mapDispatchToProps = (dispatch) =>  ({
   selectCard: (card) => dispatch(selectCard(card)),
   setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards)),
   clearSelectedCards: () => dispatch(clearSelectedCards()),
+  newSet: (set) => dispatch(newSet(set)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);

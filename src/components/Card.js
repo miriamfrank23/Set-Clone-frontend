@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { selectCard, gameStarted, setCardsOnBoard, unselectCard, clearSelectedCards } from "../actions";
+import { selectCard, gameStarted, setCardsOnBoard, unselectCard, clearSelectedCards, newSet } from "../actions";
 
 const Card = (props) => {
 
@@ -17,78 +17,10 @@ const Card = (props) => {
     })
   }
 
-  const checkForSet = () => {
-    const { selectedCards, clearSelectedCards } = props
-
-
-    if (selectedCards.length === 3) {
-      if (symbolMatch(selectedCards) && colorMatch(selectedCards) && shadingMatch(selectedCards) && numberMatch(selectedCards)) {
-        window.alert('Congratulations! You found a set')
-      }
-      window.alert('Whoops! That is not a valid set. Try again!')
-      clearSelectedCards()
-
-    }
-
-  }
-
-  const symbolMatch = (selectedCards) => {
-    if (((selectedCards[0].symbol === selectedCards[1].symbol) &&
-        (selectedCards[1].symbol === selectedCards[2].symbol) &&
-        (selectedCards[0].symbol === selectedCards[2].symbol)) ||
-       ((selectedCards[0].symbol !== selectedCards[1].symbol) &&
-        (selectedCards[1].symbol !== selectedCards[2].symbol) &&
-        (selectedCards[0].symbol !== selectedCards[2].symbol))) {
-      return true;
-    }
-      return false;
-
-  }
-
-  const colorMatch = (selectedCards) => {
-    if (((selectedCards[0].color === selectedCards[1].color) &&
-        (selectedCards[1].color === selectedCards[2].color) &&
-        (selectedCards[0].color === selectedCards[2].color)) ||
-       ((selectedCards[0].color !== selectedCards[1].color) &&
-        (selectedCards[1].color !== selectedCards[2].color) &&
-        (selectedCards[0].color !== selectedCards[2].color))) {
-      return true;
-    }
-      return false;
-
-  }
-
-  const shadingMatch = (selectedCards) => {
-    if (((selectedCards[0].shading === selectedCards[1].shading) &&
-        (selectedCards[1].shading === selectedCards[2].shading) &&
-        (selectedCards[0].shading === selectedCards[2].shading)) ||
-       ((selectedCards[0].shading !== selectedCards[1].shading) &&
-        (selectedCards[1].shading !== selectedCards[2].shading) &&
-        (selectedCards[0].shading !== selectedCards[2].shading))) {
-      return true;
-    }
-      return false;
-
-  }
-
-  const numberMatch = (selectedCards) => {
-    if (((selectedCards[0].number === selectedCards[1].number) &&
-        (selectedCards[1].number === selectedCards[2].number) &&
-        (selectedCards[0].number === selectedCards[2].number)) ||
-       ((selectedCards[0].number !== selectedCards[1].number) &&
-        (selectedCards[1].number !== selectedCards[2].number) &&
-        (selectedCards[0].number !== selectedCards[2].number))) {
-      return true;
-    }
-      return false;
-
-  }
-
 
   return(
     <div>
     {showCardsOnBoard(props)}
-    {checkForSet()}
     </div>
   )
 
@@ -100,13 +32,15 @@ const mapDispatchToProps = (dispatch) =>  ({
   selectCard: (card) => dispatch(selectCard(card)),
   unselectCard: (card) => dispatch(unselectCard(card)),
   clearSelectedCards: () => dispatch(clearSelectedCards()),
+  newSet: (set) => dispatch(newSet(set)),
 })
 
 const mapStateToProps = (state) =>  ({
   gameActive: state.gameActive,
   cards: state.cards,
   cardsOnBoard: state.cardsOnBoard,
-  selectedCards: state.selectedCards
+  selectedCards: state.selectedCards,
+  sets: state.sets,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

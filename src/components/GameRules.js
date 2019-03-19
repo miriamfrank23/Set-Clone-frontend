@@ -4,7 +4,7 @@ import { gameStarted } from "../actions";
 
 const GameRules = (props) => {
 
-  const showRules = (props) => {
+  const showRules = () => {
     if (props.gameActive) {
       return <div className='App'>
         <h3>Happy SET finding!</h3>
@@ -28,7 +28,7 @@ const GameRules = (props) => {
 
   return(
     <div >
-      {showRules(props)}
+      {showRules()}
     </div>
   )
 
@@ -36,7 +36,6 @@ const GameRules = (props) => {
 
 const mapDispatchToProps = (dispatch) =>  ({
   gameStarted: () => dispatch(gameStarted()),
-  // setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards))
 })
 
 const mapStateToProps = (state) =>  ({

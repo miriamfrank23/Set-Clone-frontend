@@ -6,6 +6,7 @@ export const CARD_SELECTED = 'CARD_SELECTED';
 export const CARD_UNSELECTED = 'CARD_UNSELECTED';
 export const CARDS_ON_BOARD = 'CARDS_ON_BOARD';
 export const CLEAR_SELECTED_CARDS = 'CLEAR_SELECTED_CARDS';
+export const NEW_SET = 'NEW_SET';
 
 // const handleErrors = (response) => {
 //   if (!response.ok) {
@@ -68,4 +69,9 @@ export const setCardsOnBoard = (cards) => ({
 
 export const clearSelectedCards = () => ({
   type: CLEAR_SELECTED_CARDS,
+})
+
+export const newSet = (set) => ({
+  type: NEW_SET,
+  payload: set
 })

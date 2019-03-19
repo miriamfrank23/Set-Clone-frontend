@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-const SetList = () => {
+const SetList = (props) => {
+
+  // const showSets = () => {
+  //
+  //   const { sets } = props
+  //
+  //   if (sets.length) {
+  //     sets.map(set => <img alt='' src='https://fabrika-antey.ru/images/star-clip-art-transparent-background-1.jpg'>)
+  //   }
+  //
+  // }
+
 
   return(
     <div>
-    show sets here
+      hiiii
     </div>
   )
 
 }
 
-export default SetList;
+
+const mapStateToProps = (state) => ({
+  sets: state.sets,
+})
+
+export default connect(mapStateToProps)(SetList);
