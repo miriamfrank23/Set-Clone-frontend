@@ -125,16 +125,18 @@ class CardTable extends Component {
         </div>
         :
         <div>
-          <button onClick={() => {this.checkForSet()}} id='checkButton'>
-            Check!
-          </button>
-          <button onClick={() => {this.drawCards()}}>
-            I don't see any SETs here
-          </button>
-          <button onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
-          id='stopButton'>
-          Stop
-          </button>
+          <div className='buttonContainer'>
+            <button onClick={() => {this.drawCards()}}>
+              I don't see any SETs here
+            </button>
+            <button onClick={() => {this.checkForSet()}} id='checkButton'>
+              Check!
+            </button>
+            <button onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
+            id='stopButton'>
+              Stop game
+            </button>
+          </div>
           <div>
           {this.renderCards()}
           </div>

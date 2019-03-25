@@ -24,8 +24,7 @@ const reducer = (state = initialState, action) => {
      return {
        ...state,
        loading: false,
-       cards: action.payload.sort(() => 0.5 - Math.random())
-       // shuffle deck
+       cards: action.payload
     }
     case FETCH_CARDS_FAILURE:
      return {

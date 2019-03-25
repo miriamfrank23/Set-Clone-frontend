@@ -14,6 +14,12 @@ const SetList = (props) => {
       }
     }
 
+    const timer = (number) => {
+      number--
+      console.log(number)
+    }
+
+    // setInterval(timer, 1000, 60);
 
 
 
