@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets } from "../actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets, toggleModal, foundASet } from "../actions";
 import Card from './Card';
+import SetModal from './Modals/SetModal';
 
 
 class CardTable extends Component {
@@ -43,17 +44,16 @@ class CardTable extends Component {
 
   checkForSet = () => {
 
-    const { selectedCards, clearSelectedCards, sets, newSet } = this.props
+    const { selectedCards, clearSelectedCards, sets, newSet, foundASet } = this.props
 
 
     if (selectedCards.length === 3) {
       if (this.symbolMatch(selectedCards) && this.colorMatch(selectedCards) && this.shadingMatch(selectedCards) && this.numberMatch(selectedCards)) {
-        window.alert('Congratulations! You found a set')
+        foundASet(true)
         newSet(selectedCards)
         this.drawCards()
         clearSelectedCards()
       } else {
-        window.alert('Whoops! That is not a valid set. Try again!')
         clearSelectedCards()
       }
     }
@@ -129,7 +129,7 @@ class CardTable extends Component {
             <button onClick={() => {this.drawCards()}}>
               I don't see any SETs here
             </button>
-            <button onClick={() => {this.checkForSet()}} id='checkButton'>
+            <button onClick={() => {this.checkForSet(); this.props.toggleModal();}} id='checkButton'>
               Check!
             </button>
             <button onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
@@ -153,6 +153,7 @@ const mapStateToProps = (state) =>  ({
   cardsOnBoard: state.cardsOnBoard,
   gameActive: state.gameActive,
   sets: state.sets,
+  foundASet: state.foundASet
 })
 
 const mapDispatchToProps = (dispatch) =>  ({
@@ -163,6 +164,8 @@ const mapDispatchToProps = (dispatch) =>  ({
   clearSelectedCards: () => dispatch(clearSelectedCards()),
   newSet: (set) => dispatch(newSet(set)),
   clearSets: () => dispatch(clearSets()),
+  toggleModal: () => dispatch(toggleModal()),
+  foundASet: () => dispatch(foundASet()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);

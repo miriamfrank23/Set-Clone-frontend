@@ -3,6 +3,7 @@ import './App.css';
 import CardTable from './components/CardTable';
 import GameRules from './components/GameRules';
 import SetList from './components/SetList';
+import SetModal from './components/Modals/SetModal';
 
 
 const App = () => {
@@ -10,11 +11,14 @@ const App = () => {
 
     return (
       <div className='App'>
-        <div className='leftComponents'>
-          <GameRules />
-          <CardTable />
-        </div>
-          <SetList />
+        <div className='container'>
+          <div className='leftComponents'>
+            <GameRules />
+            <CardTable />
+          </div>
+            <SetList />
+          </div>
+
       </div>
     )
 

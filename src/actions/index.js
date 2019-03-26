@@ -8,6 +8,8 @@ export const CARDS_ON_BOARD = 'CARDS_ON_BOARD';
 export const CLEAR_SELECTED_CARDS = 'CLEAR_SELECTED_CARDS';
 export const NEW_SET = 'NEW_SET';
 export const CLEAR_SETS = 'CLEAR_SETS';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const FOUND_A_SET = 'FOUND_A_SET';
 
 // const handleErrors = (response) => {
 //   if (!response.ok) {
@@ -79,4 +81,12 @@ export const newSet = (set) => ({
 
 export const clearSets = () => ({
   type: CLEAR_SETS,
+})
+
+export const toggleModal = () => ({
+  type: TOGGLE_MODAL,
+})
+
+export const foundASet = () => ({
+  type: FOUND_A_SET
 })

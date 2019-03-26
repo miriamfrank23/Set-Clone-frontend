@@ -19,9 +19,9 @@ const GameRules = (props) => {
           Ready to play?
         </p>
         <div>
-          <button>
+          {/*  <button>
             Demo
-          </button>
+           </button> */}
         </div>
       </div>
   }
