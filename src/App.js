@@ -5,33 +5,31 @@ import GameRules from './components/GameRules';
 import SetList from './components/SetList';
 import SetModal from './components/Modals/SetModal';
 import { connect } from "react-redux";
-import Modal from 'react-modal'
-
 
 
 const App = (props) => {
 
   const { foundASet, modalShowing } = props
 
-  const renderApp = () => {
-
-  }
 
 
     return (
       <div className='App'>
         <div className='container'>
-        {foundASet && modalShowing ?
-            <SetModal/> :
-            <div>
-              <div className='leftComponents'>
-                <GameRules />
-                <CardTable />
-              </div>
-              <SetList />
+          <div className='leftComponents'>
+            <GameRules />
+            <CardTable />
+          </div>
+            <SetList />
+          </div>
+          {foundASet && modalShowing ?
+          <div className='overlay'>
+            <div className='modalBox'>
+              <h3>
+                Congrats! You found a SET.
+              </h3>
             </div>
-        }
-        </div>
+          </div> : null }
       </div>
     )
 
