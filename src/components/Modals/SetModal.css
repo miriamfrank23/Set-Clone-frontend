@@ -1,55 +1,17 @@
-.modal-wrapper {
-    background: white;
-    border: 1px solid #d0cccc;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-    margin: 100px auto 0;
-    transition: all .8s;
-    width: 60%;
-    border-radius: 3px;
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: papayawhip;
 }
 
-.modal-header {
-    background: #263238;
-    height: 40px;
-    line-height: 40px;
-    padding: 5px 20px;
-    text-align: right;
-}
-
-.modal-header h3 {
-    color: white;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-
-.modal-body {
-    padding: 10px 15px;
-    text-align: center;
-}
-
-.modal-footer {
-    background: #263238;
-    height: 35px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-
-.back-drop {
-    background-color: rgba(48, 49, 48, 0.42);
-    height: 100%;
-    position: fixed;
-    transition: all 1.3s;
-    width: 100%;
-}
-
-.open-modal-btn {
-    margin: 15px;
-    padding: 10px;
-    font-weight: bold;
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rebeccapurple;
 }

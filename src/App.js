@@ -5,6 +5,7 @@ import GameRules from './components/GameRules';
 import SetList from './components/SetList';
 import SetModal from './components/Modals/SetModal';
 import { connect } from "react-redux";
+import Modal from 'react-modal'
 
 
 
