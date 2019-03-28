@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets, toggleModal, foundASet } from "../actions";
 import Card from './Card';
-import SetModal from './Modals/SetModal';
 
 
 class CardTable extends Component {
@@ -44,7 +43,7 @@ class CardTable extends Component {
 
   checkForSet = () => {
 
-    const { selectedCards, clearSelectedCards, sets, newSet, foundASet } = this.props
+    const { selectedCards, clearSelectedCards, newSet, foundASet } = this.props
 
 
     if (selectedCards.length === 3) {
@@ -153,7 +152,7 @@ const mapStateToProps = (state) =>  ({
   cardsOnBoard: state.cardsOnBoard,
   gameActive: state.gameActive,
   sets: state.sets,
-  foundASet: state.foundASet
+  aSet: state.aSet
 })
 
 const mapDispatchToProps = (dispatch) =>  ({

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 
 const SetList = (props) => {
@@ -14,10 +14,10 @@ const SetList = (props) => {
       }
     }
 
-    const timer = (number) => {
-      number--
-      console.log(number)
-    }
+    // const timer = (number) => {
+    //   number--
+    //   console.log(number)
+    // }
 
     // setInterval(timer, 1000, 60);
 

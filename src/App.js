@@ -3,13 +3,35 @@ import './App.css';
 import CardTable from './components/CardTable';
 import GameRules from './components/GameRules';
 import SetList from './components/SetList';
-import SetModal from './components/Modals/SetModal';
 import { connect } from "react-redux";
+import { foundASet, toggleModal } from "./actions";
 
 
 const App = (props) => {
 
-  const { foundASet, modalShowing } = props
+  const { aSet, modalShowing, foundASet, toggleModal } = props
+
+  const displayModal = () => {
+    if (aSet && modalShowing) {
+      return <div className='overlay' onAnimationEnd={() => {foundASet(); toggleModal()}}>
+          <div className='modalBox'>
+            <h3>
+            Congrats! You found a SET.
+            </h3>
+          </div>
+      </div>
+  } else if (modalShowing) {
+      return <div className='overlay' onAnimationEnd={() => {toggleModal();}}>
+              <div className='modalBox'>
+                <h3>
+                  Whoops! That's not a SET. Please try again.
+                </h3>
+              </div>
+          </div>
+    } else {
+      return null
+    }
+  }
 
 
 
@@ -22,26 +44,20 @@ const App = (props) => {
           </div>
             <SetList />
           </div>
-          {foundASet && modalShowing ?
-          <div className='overlay'>
-            <div className='modalBox'>
-              <h3>
-                Congrats! You found a SET.
-              </h3>
-            </div>
-          </div> : null }
+          {displayModal()}
       </div>
     )
 
 }
 
 const mapStateToProps = (state) =>  ({
-  foundASet: state.foundASet,
+  aSet: state.aSet,
   modalShowing: state.modalShowing,
 })
 
 const mapDispatchToProps = (dispatch) =>  ({
-
+  toggleModal: () => dispatch(toggleModal()),
+  foundASet: () => dispatch(foundASet()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

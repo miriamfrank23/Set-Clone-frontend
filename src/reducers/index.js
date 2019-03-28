@@ -11,7 +11,7 @@ const initialState = {
   cardsOnBoard: [],
   selectedCards: [],
   modalShowing: false,
-  foundASet: false
+  aSet: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -78,7 +78,7 @@ const reducer = (state = initialState, action) => {
       case FOUND_A_SET:
       return {
         ...state,
-        foundASet: !state.foundASet,
+        aSet: !state.aSet,
      }
     default:
       return state;
