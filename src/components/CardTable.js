@@ -118,6 +118,12 @@ class CardTable extends Component {
       <div className='cardContainer'>
       {!this.props.gameActive ?
         <div>
+          <span className='playButton'>
+            Demo
+          </span>
+          <span className='playButton' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
+            Practice
+          </span>
           <span className='playButton' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
             Play!
           </span>
@@ -126,14 +132,14 @@ class CardTable extends Component {
         <div>
           <div className='buttonContainer'>
             <span onClick={() => {this.drawCards()}}>
-              I don't see any SETs here
+              Deal again
             </span>
             <span onClick={() => {this.checkForSet(); this.props.toggleModal();}} id='checkButton'>
               Check!
             </span>
             <span onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
             id='stopButton'>
-              Stop game
+              End game
             </span>
           </div>
           <div>
