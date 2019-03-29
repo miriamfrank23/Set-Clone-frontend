@@ -1,15 +1,19 @@
 .App {
   text-align: center;
   color: black;
-  animation-name: changeBackground;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
+  font-size: 18px;
 }
 
 .container {
   display: flex;
-  /* align-items: stretch; */
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.leftComponents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
  @keyframes spin {
@@ -32,11 +36,13 @@
 }
 
 .setCard {
-  background-color: #e5fbe5;
   margin: 10px;
   height: 60px;
   width: 75px;
   border-radius: 3px;
+  /* background-color: #adc1e6; */
+  box-shadow: 5px 5px 12px -2px rgba(0,0,0,0.75);
+
 }
 
 .card:hover {
@@ -49,45 +55,43 @@
   height: 160px;
   width: 220px;
   border-radius: 3px;
-  background-color: #e5fbe5;
+  box-shadow: 10px 10px 23px -2px rgba(0,0,0,0.75);
 }
 
 .cardContainer {
   display: grid;
-  grid-template-columns: minmax(auto, 1000px);
+  grid-template-columns: minmax(auto, 1100px);
   justify-content: center;
   align-items: center;
-  border-style: solid;
-  background-image: url("https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  /* padding-right: 200px; */
+  /* border-style: solid; */
+  background-image: url("https://images.pexels.com/photos/172301/pexels-photo-172301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   min-height: 70vh;
   border-radius: 3px;
+  /* transform: rotate(90deg); */
 }
 
 .instructions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-style: solid; */
   max-width: 1000px;
 }
 
-button {
-  min-width: 60px;
-  height: 30px;
-  font-size: 14px;
-  border-radius: 3px;
-  margin: 15px;
+span {
   font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: white;
+  padding: 20px;
 }
 
-button:hover {
-  background-color: #f2f2f2;
-
+span:hover {
+  font-weight: bold;
 }
 
-#checkButton:hover {
-  /* background-color: #c9fdc9; */
-
+.playButton {
+  font-size: 30px;
+  padding: 50px;
 }
 
 #checkButton {
@@ -95,14 +99,12 @@ button:hover {
   height: 40px;
 }
 
-#stopButton:hover {
-  /* background-color: lightpink; */
-}
-
 .buttonContainer {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
+  color: white;
+  /* padding: 20px; */
 }
 
 h3 {
@@ -116,14 +118,15 @@ p {
 #setTab {
   padding: 20px;
   max-width: 250px;
-  /* border-style: solid; */
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
+
 }
 
 #setList {
   /* border-style: solid; */
+  padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -137,7 +140,7 @@ p {
   background-color: #f2f2f2;
   background: rgba(242, 242, 242, .7);
   animation-name: disappear;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-fill-mode: forwards;
 }
 

@@ -9,7 +9,8 @@ import { foundASet, toggleModal } from "./actions";
 
 const App = (props) => {
 
-  const { aSet, modalShowing, foundASet, toggleModal } = props
+  const { aSet, modalShowing, foundASet, toggleModal, gameActive } = props
+
 
   const displayModal = () => {
     if (aSet && modalShowing) {
@@ -42,7 +43,8 @@ const App = (props) => {
             <GameRules />
             <CardTable />
           </div>
-            <SetList />
+            {gameActive ?
+            <SetList /> : null}
           </div>
           {displayModal()}
       </div>
@@ -53,6 +55,7 @@ const App = (props) => {
 const mapStateToProps = (state) =>  ({
   aSet: state.aSet,
   modalShowing: state.modalShowing,
+  gameActive: state.gameActive,
 })
 
 const mapDispatchToProps = (dispatch) =>  ({

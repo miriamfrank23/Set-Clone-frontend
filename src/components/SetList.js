@@ -7,12 +7,12 @@ const SetList = (props) => {
 
   const showSets = () => {
 
-     if (sets.length) {
-        return sets.map(set => {
-          return <img alt='' src={set[0].image} className='setCard' key={set[0].id}/>
-        })
-      }
-    }
+      if (sets.length) {
+         return sets.map(set => {
+           return <img alt='' src={set[0].image} className='setCard' key={set[0].id}/>
+         })
+       }
+     }
 
     // const timer = (number) => {
     //   number--
