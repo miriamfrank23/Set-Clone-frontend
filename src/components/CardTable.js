@@ -115,23 +115,23 @@ class CardTable extends Component {
   render() {
 
     return(
-      <div className='cardContainer'>
+      <div className='card-container'>
       {!this.props.gameActive ?
         <div>
-          <span className='playButton'>
+          <span className='play-button'>
             Demo
           </span>
-          <span className='playButton' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
+          <span className='play-button' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
             Play!
           </span>
         </div>
         :
         <div>
-          <div className='buttonContainer'>
+          <div className='button-container'>
             <span onClick={() => {this.drawCards()}}>
               Deal again
             </span>
-            <span onClick={() => {this.checkForSet(); this.props.toggleModal();}} id='checkButton'>
+            <span onClick={() => {this.checkForSet(); this.props.toggleModal();}} id='check-button'>
               Check!
             </span>
             <span onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
@@ -139,7 +139,7 @@ class CardTable extends Component {
               End game
             </span>
           </div>
-          <div>
+          <div className='card-container'>
           {this.renderCards()}
           </div>
         </div>}

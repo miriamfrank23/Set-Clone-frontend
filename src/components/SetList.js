@@ -9,7 +9,7 @@ const SetList = (props) => {
 
       if (sets.length) {
          return sets.map(set => {
-           return <img alt='' src={set[0].image} className='setCard' key={set[0].id}/>
+           return <img alt='' src={set[0].image} className='set-card' key={set[0].id}/>
          })
        }
      }
@@ -24,10 +24,10 @@ const SetList = (props) => {
 
 
   return(
-    <div id='setTab'>
+    <div id='set-tab'>
       {gameActive ?
       `SET count: ${sets.length}` : null}
-      <div id='setList'>
+      <div id='set-list'>
       {showSets()}
       </div>
     </div>

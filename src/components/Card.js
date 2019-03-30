@@ -11,7 +11,7 @@ const Card = (props) => {
 
     return cardsOnBoard.map(card => {
       if (selectedCards.map(eachCard => eachCard.id).includes(card.id)) {
-          return <div className='selectedCardContainer' key={card.id}><img className='selectedCard' key={card.id} src={card.image} alt='' onClick={() => {unselectCard(card);}}/><i className="fa fa-check" aria-hidden="true"></i></div>
+          return <div className='selected-card-container' key={card.id}><img className='selected-card' key={card.id} src={card.image} alt='' onClick={() => {unselectCard(card);}}/><i className="fa fa-check" aria-hidden="true"></i></div>
       }
       return <img className='card' key={card.id} src={card.image} alt='' onClick={() => {selectCard(card);}}/>
     })
@@ -19,7 +19,7 @@ const Card = (props) => {
 
 
   return(
-    <div>
+    <div className='card-container'>
     {showCardsOnBoard(props)}
     </div>
   )

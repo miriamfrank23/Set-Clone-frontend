@@ -15,7 +15,7 @@ const App = (props) => {
   const displayModal = () => {
     if (aSet && modalShowing) {
       return <div className='overlay' onAnimationEnd={() => {foundASet(); toggleModal()}}>
-          <div className='modalBox'>
+          <div className='modal-box'>
             <h3>
             Congrats! You found a SET.
             </h3>
@@ -23,7 +23,7 @@ const App = (props) => {
       </div>
   } else if (modalShowing) {
       return <div className='overlay' onAnimationEnd={() => {toggleModal();}}>
-              <div className='modalBox'>
+              <div className='modal-box'>
                 <h3>
                   Whoops! That's not a SET. Please try again.
                 </h3>
@@ -39,7 +39,7 @@ const App = (props) => {
     return (
       <div className='App'>
         <div className='container'>
-          <div className='leftComponents'>
+          <div className='left-components'>
             <GameRules />
             <CardTable />
           </div>
