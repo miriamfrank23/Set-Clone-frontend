@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { gameStarted } from "../actions";
+import Timer from './Timer';
+
 
 const GameRules = (props) => {
 
   const showRules = () => {
     if (props.gameActive) {
-      return <div className='App'>
+      return <div className='rules-and-timer-wrapper'>
         <h3>Happy SET finding!</h3>
+        <Timer />
       </div>
     }
     return <div className='instructions'>
@@ -18,11 +21,6 @@ const GameRules = (props) => {
           The goal of the game is to find as many SETs as you can. Each card has four attributes: color, shape, shading, and number. A SET consists of three cards that are either all alike or all different on each attribute.
           Ready to play?
         </p>
-        <div>
-          {/*  <button>
-            Demo
-           </button> */}
-        </div>
       </div>
   }
 

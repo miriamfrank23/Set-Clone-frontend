@@ -122,9 +122,6 @@ class CardTable extends Component {
             Demo
           </span>
           <span className='playButton' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
-            Practice
-          </span>
-          <span className='playButton' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
             Play!
           </span>
         </div>

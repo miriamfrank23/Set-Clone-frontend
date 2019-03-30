@@ -10,13 +10,8 @@ export const NEW_SET = 'NEW_SET';
 export const CLEAR_SETS = 'CLEAR_SETS';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const FOUND_A_SET = 'FOUND_A_SET';
+export const DECREASE_TIMER = 'DECREASE_TIMER';
 
-// const handleErrors = (response) => {
-//   if (!response.ok) {
-//     throw Error(response.statusText)
-//   }
-//   return response
-// }
 
 export const fetchCards = () => {
   return dispatch => {
@@ -89,4 +84,8 @@ export const toggleModal = () => ({
 
 export const foundASet = () => ({
   type: FOUND_A_SET
+})
+
+export const decreaseTimer = () => ({
+  type: DECREASE_TIMER
 })

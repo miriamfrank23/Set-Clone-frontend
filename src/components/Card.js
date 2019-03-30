@@ -11,7 +11,7 @@ const Card = (props) => {
 
     return cardsOnBoard.map(card => {
       if (selectedCards.map(eachCard => eachCard.id).includes(card.id)) {
-          return <img className='selectedCard' key={card.id} src={card.image} alt='' onClick={() => {unselectCard(card);}}/>
+          return <div className='selectedCardContainer' key={card.id}><img className='selectedCard' key={card.id} src={card.image} alt='' onClick={() => {unselectCard(card);}}/><i className="fa fa-check" aria-hidden="true"></i></div>
       }
       return <img className='card' key={card.id} src={card.image} alt='' onClick={() => {selectCard(card);}}/>
     })

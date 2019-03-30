@@ -149,3 +149,34 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+i {
+  position: absolute;
+  /* padding-right: 30px; */
+  /* padding-top: 20px; */
+
+}
+
+.selectedCardContainer {
+  position: relative;
+}
+
+.rules-and-timer-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.clock {
+  font-size: 20px;
+  border-radius: 50%;
+  border: solid 1px;
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  margin: 20px;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
