@@ -13,13 +13,28 @@ class Timer extends Component {
 
     setInterval(decreaseTimer, 1000)
   }
+  
+  displayTimer = (props) => {
+    const { timer } = props
+    
+    let minutes = (timer/60).toString()[0]
+    let seconds = timer - minutes * 60
+    
+    let displayTime = `${minutes}:${seconds}`
+    
+    if (timer === 120) {
+      return '2:00'
+    } else if (timer) {
+      return displayTime
+    } else {
+      return 0
+    }
+  }
 
   render() {
     return (
     <div className='clock'>
-      <div>
-        {this.props.timer > 0 ? this.props.timer : 0}
-      </div>
+      {this.displayTimer(this.props)}
     </div>
   )}
 
