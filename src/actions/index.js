@@ -11,6 +11,7 @@ export const CLEAR_SETS = 'CLEAR_SETS';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const FOUND_A_SET = 'FOUND_A_SET';
 export const DECREASE_TIMER = 'DECREASE_TIMER';
+export const TOGGLE_DEMO = 'TOGGLE_DEMO';
 
 
 export const fetchCards = () => {
@@ -88,4 +89,8 @@ export const foundASet = () => ({
 
 export const decreaseTimer = () => ({
   type: DECREASE_TIMER
+})
+
+export const toggleDemo = () => ({
+  type: TOGGLE_DEMO,
 })

@@ -18,8 +18,9 @@
 
 
  @keyframes disappear {
-  from{ opacity: 1; }
-  to { opacity: 0; }
+  0%   {opacity: 1;}
+  90%  {opacity: 1;}
+ 100% {opacity: 0;}
 }
 
 .card {
@@ -108,14 +109,13 @@ p {
 }
 
 #set-list {
-  /* border-style: solid; */
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.overlay{
+/* .overlay{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -123,9 +123,9 @@ p {
   background-color: #f2f2f2;
   background: rgba(242, 242, 242, .7);
   animation-name: disappear;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-fill-mode: forwards;
-}
+} */
 
 .modal-box {
   position: fixed;
@@ -139,6 +139,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation-name: disappear;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 i {
@@ -182,4 +185,34 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.demo-overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #f2f2f2;
+  background: rgba(242, 242, 242, .7);
+}
+
+.demo-modal-box {
+  padding: 3%;
+  position: fixed;
+   top: 15%;
+   left: 15%;
+  right: 15%;
+  bottom: 15%;
+  background: rgba(0, 0, 0, 1);
+  color: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.demo-image {
+  max-width: 600px;
+  margin: 20px;
 }

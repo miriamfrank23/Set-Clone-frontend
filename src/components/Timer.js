@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import { decreaseTimer } from "../actions";
 
 class Timer extends Component {
+  
+  intervalID = 0
 
   componentDidMount() {
-    this.startTimer(this.props)
+     this.intervalID = setInterval(this.props.decreaseTimer, 1000)
   }
-
-  startTimer = (props) => {
-    const { decreaseTimer } = props
-
-    setInterval(decreaseTimer, 1000)
-  }
+  
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+ }
   
   displayTimer = (props) => {
     const { timer } = props
@@ -24,7 +24,10 @@ class Timer extends Component {
     
     if (timer === 120) {
       return '2:00'
-    } else if (timer) {
+    // } else if () {
+    // 
+    }
+     else if (timer > 0) {
       return displayTime
     } else {
       return 0

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets, toggleModal, foundASet } from "../actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets, toggleModal, foundASet, toggleDemo } from "../actions";
 import Card from './Card';
 
 
@@ -118,8 +118,8 @@ class CardTable extends Component {
       <div className='card-container'>
       {!this.props.gameActive ?
         <div>
-          <span className='play-button'>
-            Demo
+          <span className='play-button' onClick={() => {this.props.toggleDemo()}}>
+            More info
           </span>
           <span className='play-button' onClick={() => {this.props.gameStarted(); this.drawCards();}}>
             Play!
@@ -128,7 +128,7 @@ class CardTable extends Component {
         :
         <div>
           <div className='button-container'>
-            <span onClick={() => {this.drawCards()}}>
+            <span onClick={() => {this.drawCards(); this.props.clearSelectedCards();}}>
               Deal again
             </span>
             <span onClick={() => {this.checkForSet(); this.props.toggleModal();}} id='check-button'>
@@ -168,6 +168,7 @@ const mapDispatchToProps = (dispatch) =>  ({
   clearSets: () => dispatch(clearSets()),
   toggleModal: () => dispatch(toggleModal()),
   foundASet: () => dispatch(foundASet()),
+  toggleDemo: () => dispatch(toggleDemo()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);

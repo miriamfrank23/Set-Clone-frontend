@@ -1,5 +1,5 @@
 // import { combineReducers } from 'redux';
-import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED, CARD_SELECTED, CARDS_ON_BOARD, CLEAR_SELECTED_CARDS, CARD_UNSELECTED, NEW_SET, CLEAR_SETS, TOGGLE_MODAL, FOUND_A_SET, DECREASE_TIMER } from '../actions';
+import { FETCH_CARDS_BEGIN, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE, GAME_STARTED, CARD_SELECTED, CARDS_ON_BOARD, CLEAR_SELECTED_CARDS, CARD_UNSELECTED, NEW_SET, CLEAR_SETS, TOGGLE_MODAL, FOUND_A_SET, DECREASE_TIMER, TOGGLE_DEMO } from '../actions';
 
 const initialState = {
   cards: [],
@@ -11,7 +11,8 @@ const initialState = {
   cardsOnBoard: [],
   selectedCards: [],
   modalShowing: false,
-  aSet: false
+  aSet: false,
+  demoShowing: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -84,6 +85,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         timer: state.timer - 1,
+     }
+      case TOGGLE_DEMO:
+      return {
+        ...state,
+        demoShowing: !state.demoShowing,
      }
     default:
       return state;
