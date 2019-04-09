@@ -4,12 +4,13 @@ import CardTable from './components/CardTable';
 import GameRules from './components/GameRules';
 import SetList from './components/SetList';
 import { connect } from "react-redux";
-import { foundASet, toggleModal, toggleDemo } from "./actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, clearSets, toggleModal, foundASet, toggleDemo, resetTimer } from "./actions";
+
 
 
 const App = (props) => {
 
-  const { aSet, modalShowing, foundASet, toggleModal, gameActive, demoShowing, toggleDemo } = props
+  const { aSet, modalShowing, foundASet, toggleModal, gameActive, demoShowing, toggleDemo, timer, sets, clearSelectedCards, clearSets, resetTimer, setCardsOnBoard, gameStarted } = props
 
 
   const displayModal = () => {
@@ -21,7 +22,7 @@ const App = (props) => {
             </h3>
           </div>
       </div>
-  } else if (modalShowing) {
+    } else if (modalShowing) {
       return <div className='overlay' onAnimationEnd={() => {toggleModal();}}>
               <div className='modal-box'>
                 <h3>
@@ -60,6 +61,21 @@ const App = (props) => {
       </div>
     }
   }
+  
+  const endGame = () => {
+    if (timer <= 0) {
+      return <div className='static-overlay'>
+          <div className='modal-box'>
+            <h3>
+            {sets.length ? `Nice job! You found ${sets.length} SETs.` : `You didn't find any SETs this time :(`}
+            </h3>
+            <span onClick={() => {gameStarted(); clearSets(); resetTimer(); toggleModal(); clearSelectedCards(); setCardsOnBoard([]); toggleModal();}}>
+              Close
+            </span>
+          </div>
+      </div>
+    }
+  }
 
 
 
@@ -75,6 +91,7 @@ const App = (props) => {
           </div>
           {displayModal()}
           {displayDemo()}
+          {endGame()}
       </div>
     )
 
@@ -84,13 +101,22 @@ const mapStateToProps = (state) =>  ({
   aSet: state.aSet,
   modalShowing: state.modalShowing,
   gameActive: state.gameActive,
-  demoShowing: state.demoShowing
+  demoShowing: state.demoShowing,
+  timer: state.timer,
+  sets: state.sets,
 })
 
 const mapDispatchToProps = (dispatch) =>  ({
+  gameStarted: () => dispatch(gameStarted()),
+  fetchCards: () => dispatch(fetchCards()),
+  selectCard: (card) => dispatch(selectCard(card)),
+  setCardsOnBoard: (cards) => dispatch(setCardsOnBoard(cards)),
+  clearSelectedCards: () => dispatch(clearSelectedCards()),
+  clearSets: () => dispatch(clearSets()),
   toggleModal: () => dispatch(toggleModal()),
   foundASet: () => dispatch(foundASet()),
   toggleDemo: () => dispatch(toggleDemo()),
+  resetTimer: () => dispatch(resetTimer()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

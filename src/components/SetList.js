@@ -8,19 +8,11 @@ const SetList = (props) => {
   const showSets = () => {
 
       if (sets.length) {
-         return sets.map(set => {
-           return <img alt='' src={set[0].image} className='set-card' key={set[0].id}/>
+         return sets.map((set, index) => {
+           return <img alt='' src={set[0].image} className='set-card' key={index}/>
          })
        }
      }
-
-    // const timer = (number) => {
-    //   number--
-    //   console.log(number)
-    // }
-
-    // setInterval(timer, 1000, 60);
-
 
 
   return(

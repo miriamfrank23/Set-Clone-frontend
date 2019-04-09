@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets, toggleModal, foundASet, toggleDemo } from "../actions";
+import { fetchCards, setCardsOnBoard, selectCard, gameStarted, clearSelectedCards, newSet, clearSets, toggleModal, foundASet, toggleDemo, resetTimer } from "../actions";
 import Card from './Card';
 
 
@@ -134,7 +134,7 @@ class CardTable extends Component {
             <span onClick={() => {this.checkForSet(); this.props.toggleModal();}} id='check-button'>
               Check!
             </span>
-            <span onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets()}}
+            <span onClick={() => {this.props.gameStarted(); this.loadingCard(); this.props.clearSets(); this.props.resetTimer()}}
             id='stopButton'>
               End game
             </span>
@@ -169,6 +169,7 @@ const mapDispatchToProps = (dispatch) =>  ({
   toggleModal: () => dispatch(toggleModal()),
   foundASet: () => dispatch(foundASet()),
   toggleDemo: () => dispatch(toggleDemo()),
+  resetTimer: () => dispatch(resetTimer()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTable);

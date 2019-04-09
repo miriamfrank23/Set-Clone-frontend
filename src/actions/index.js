@@ -12,6 +12,7 @@ export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const FOUND_A_SET = 'FOUND_A_SET';
 export const DECREASE_TIMER = 'DECREASE_TIMER';
 export const TOGGLE_DEMO = 'TOGGLE_DEMO';
+export const RESET_TIMER = 'RESET_TIMER';
 
 
 export const fetchCards = () => {
@@ -94,3 +95,8 @@ export const decreaseTimer = () => ({
 export const toggleDemo = () => ({
   type: TOGGLE_DEMO,
 })
+
+export const resetTimer = () => ({
+  type: RESET_TIMER,
+})
+
